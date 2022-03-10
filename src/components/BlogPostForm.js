@@ -1,45 +1,47 @@
-import React,{useState} from 'react';
-import {Button, Text, TextInput, View,StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {Button, Text, TextInput, View, StyleSheet} from 'react-native';
 
 
-const BlogPostForm = ({onSubmit,initialValues,screenName}) => {
-    const [title,setTitle] = useState(initialValues.title);
-    const [content,setContent] = useState(initialValues.content);
+const BlogPostForm = ({onSubmit, initialValues, screenName}) => {
+    const [title, setTitle] = useState(initialValues.title);
+    const [content, setContent] = useState(initialValues.content);
 
     return (
-        <View style={{paddingHorizontal:10,paddingVertical:5}}>
+        <View style={{paddingHorizontal: 10, paddingVertical: 5}}>
             <Text style={styles.textStyle}>Enter Title</Text>
-            <TextInput style={styles.inputStyle} onChangeText={(text)=>setTitle(text)} value={title}/>
+            <TextInput style={styles.inputStyle} onChangeText={(text) => setTitle(text)} value={title}/>
             <Text style={styles.textStyle}>Enter Content</Text>
-            <TextInput style={{...styles.inputStyle,marginBottom:20,textAlignVertical: 'top'}} onChangeText={(text)=>setContent(text)} value={content} multiline={true}
+            <TextInput style={{...styles.inputStyle, marginBottom: 20, textAlignVertical: 'top'}}
+                       onChangeText={(text) => setContent(text)} value={content} multiline={true}
                        numberOfLines={4}/>
-            <Button style={styles.buttonStyle} title={`${screenName} BlogPost`} onPress={()=>onSubmit(title,content)}/>
+            <Button style={styles.buttonStyle} title={`${screenName} BlogPost`}
+                    onPress={() => onSubmit(title, content)}/>
         </View>
     );
 };
 BlogPostForm.defaultProps = {
-    initialValues:{
+    initialValues: {
         title: '',
         content: ''
     }
 }
 
 const styles = StyleSheet.create({
-    inputStyle:{
+    inputStyle: {
         borderWidth: 1,
-        borderColor:'black',
+        borderColor: 'black',
         paddingHorizontal: 5,
         paddingVertical: 5,
         fontSize: 18,
     },
-    textStyle:{
+    textStyle: {
         paddingVertical: 5,
-        fontSize:20,
+        fontSize: 20,
     },
-    buttonStyle:{
+    buttonStyle: {
         paddingVertical: 10,
-        color:'black',
-        fontWeight:'bold'
+        color: 'black',
+        fontWeight: 'bold'
     }
 })
 export default BlogPostForm;

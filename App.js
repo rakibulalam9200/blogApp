@@ -1,11 +1,11 @@
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View,TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import IndexScreen from './src/screens/IndexScreen';
 import {Provider} from './src/context/BlogContext'
 import ShowScreen from "./src/screens/ShowScreen";
-import {Feather,EvilIcons} from '@expo/vector-icons';
+import {Feather, EvilIcons} from '@expo/vector-icons';
 import CreateScreen from "./src/screens/CreateScreen";
 import EditScreen from "./src/screens/EditScreen";
 
@@ -18,7 +18,7 @@ export default function App() {
                     <Stack.Screen name="Index" component={IndexScreen} options={({navigation, route}) => ({
                         headerTitle: 'Blogs',
                         headerRight: () => (
-                            <TouchableOpacity onPress={()=> navigation.navigate('Create')}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Create')}>
                                 <Feather name="plus" size={24}/>
                             </TouchableOpacity>
 
@@ -28,8 +28,8 @@ export default function App() {
                     <Stack.Screen name="Show" component={ShowScreen} options={({navigation, route}) => ({
                         headerTitle: 'Blog Details',
                         headerRight: () => (
-                            <TouchableOpacity onPress={()=> navigation.navigate('Edit',{id:route.params.id})
-                               // navigation.navigate('Edit',{id:route.id})
+                            <TouchableOpacity onPress={() => navigation.navigate('Edit', {id: route.params.id})
+                                // navigation.navigate('Edit',{id:route.id})
                             }>
                                 <EvilIcons name="pencil" size={36}/>
                             </TouchableOpacity>
